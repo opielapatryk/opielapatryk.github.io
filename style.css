@@ -320,6 +320,10 @@ img {
 
 /* Contact Section Styles */
 .contact-section {
+    text-align: center;
+}
+
+.contact-section {
     padding: 80px 0;
     background-color: #121212;
 }
