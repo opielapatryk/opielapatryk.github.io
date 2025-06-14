@@ -15,6 +15,9 @@
                 <div class="logo">
                     <a href="#">Opiela Patryk</a>
                 </div>
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
                 <ul class="nav-links">
                     <li><a href="#projects">Portfolio</a></li>
                     <li><a href="#skills">Services</a></li>
@@ -107,7 +110,7 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- JavaScript for scroll to top functionality -->
+    <!-- JavaScript -->
     <script>
         // Scroll to top functionality
         const scrollTopBtn = document.getElementById('scrollTop');
@@ -138,11 +141,22 @@
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 
+                // Close mobile menu when a link is clicked
+                document.querySelector('.nav-links').classList.remove('active');
+                
                 window.scrollTo({
                     top: targetElement.offsetTop - 70,
                     behavior: 'smooth'
                 });
             });
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
 
         // Add animation to elements when they come into view
