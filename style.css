@@ -15,6 +15,8 @@
     --text-muted: #a1a1a1;
     --border-color: #e2e8f0;
     --transition: all 0.3s ease;
+    --bs-body-bg: var(--primary-color);
+    --bs-body-color: var(--text-color);
 }
 
 body {
@@ -24,6 +26,7 @@ body {
     background-color: var(--primary-color);
 }
 
+/* Override Bootstrap container for consistency with existing design */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -131,7 +134,7 @@ img {
 }
 
 .section {
-    padding: 80px 0;
+    padding: 5rem 0;
     animation: fadeIn 0.8s ease-out;
 }
 
@@ -168,11 +171,28 @@ img {
     color: var(--accent-color);
 }
 
-.menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 1.5rem;
+.navbar-toggler {
+    border: none;
+    background: transparent;
     color: var(--text-color);
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--accent-color);
 }
 
 /* Hero Section */
@@ -185,24 +205,13 @@ img {
     overflow: hidden;
 }
 
+/* Bootstrap version of hero content */
 .hero-content {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 40px;
-}
-
-.hero-text {
-    flex: 1;
-}
-
-.hero-image {
-    flex: 1;
-    text-align: right;
 }
 
 .hero-image img {
-    max-width: 90%;
+    max-width: 100%;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     transition: transform 0.5s ease;
@@ -262,15 +271,8 @@ img {
 
 /* Profile Card */
 .profile-card {
-    display: flex;
-    gap: 60px;
-    align-items: center;
     padding: 50px;
     margin: 50px 0;
-}
-
-.profile-image {
-    flex: 0 0 300px;
 }
 
 .profile-image img {
@@ -288,12 +290,84 @@ img {
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-.profile-content {
-    flex: 1;
+/* Contact Section Bootstrap Styles */
+.contact-section {
+    text-align: center;
+    padding: 80px 0;
+    background-color: #121212;
 }
 
-.button-container {
-    margin-top: 30px;
+.contact-form-container {
+    padding: 30px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+    padding: 12px 15px;
+    background: #2a2a2a;
+    border: 1px solid #4a4a4a;
+    border-radius: 5px;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control::placeholder {
+    color: #b0b0b0;
+    opacity: 1;
+    font-weight: 400;
+}
+
+.form-control:focus {
+    background-color: #333333;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3);
+    color: #ffffff;
+}
+
+.btn-primary {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.btn-accent {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #000000;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(251, 191, 36, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-accent:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(251, 191, 36, 0.4);
+    color: #000000;
 }
 
 /* Scroll to top button */
@@ -326,280 +400,15 @@ img {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Contact Section Styles */
-.contact-section {
-    text-align: center;
+/* Bootstrap responsive spacing utilities */
+.section {
+    padding: 5rem 0;
+    animation: fadeIn 0.8s ease-out;
 }
 
-.contact-section {
-    padding: 80px 0;
-    background-color: #121212;
+.section.alternate {
+    background-color: var(--dark-color);
 }
 
-.contact-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.contact-form-container {
-    width: 100%;
-    padding: 30px;
-    background: #1a1a1a;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px 15px;
-    background: #2a2a2a;
-    border: 1px solid #333;
-    border-radius: 5px;
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #fbbf24;
-    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
-}
-
-.send-btn {
-    background: #3b82f6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 12px 25px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    width: auto;
-    display: inline-block;
-}
-
-.send-btn:hover {
-    background: #2563eb;
-    transform: translateY(-2px);
-}
-
-/* Responsive styles for contact section */
-@media (max-width: 768px) {
-    .contact-form-container {
-        padding: 20px;
-    }
-    
-    .form-group input,
-    .form-group textarea {
-        padding: 12px;
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .hero-content {
-        gap: 20px;
-    }
-    
-    .hero-image img {
-        max-width: 100%;
-    }
-    
-    h1 {
-        font-size: 2.5rem;
-    }
-    
-    .greeting, .intro {
-        font-size: 3rem;
-    }
-    
-    .profession {
-        font-size: 1.8rem;
-    }
-}
-
-@media (max-width: 900px) {
-    .hero-content {
-        flex-direction: column-reverse;
-        text-align: center;
-    }
-    
-    .hero-text {
-        margin-top: 40px;
-    }
-    
-    .profile-card {
-        flex-direction: column;
-        padding: 40px 30px;
-        text-align: center;
-    }
-    
-    .profile-image {
-        flex: 0 0 220px;
-        margin-bottom: 20px;
-    }
-    
-    h1 {
-        font-size: 2.5rem;
-    }
-    
-    h2 {
-        font-size: 1.8rem;
-    }
-    
-    .hero-buttons {
-        justify-content: center;
-        display: flex;
-        gap: 15px;
-    }
-}
-
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-        z-index: 200;
-    }
-    
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background-color: var(--dark-color);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 40px;
-        transition: right 0.4s ease;
-        z-index: 100;
-        padding-top: 60px;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-    }
-    
-    .nav-links.active {
-        right: 0;
-    }
-    
-    .nav-links li {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeInNav 0.5s forwards;
-        animation-delay: calc(0.1s * var(--item-index, 0));
-    }
-    
-    .nav-links li:nth-child(1) { --item-index: 1; }
-    .nav-links li:nth-child(2) { --item-index: 2; }
-    .nav-links li:nth-child(3) { --item-index: 3; }
-    .nav-links li:nth-child(4) { --item-index: 4; }
-    .nav-links li:nth-child(5) { --item-index: 5; }
-    
-    @keyframes fadeInNav {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    .contact-form-container {
-        padding: 20px;
-    }
-    
-    .form-group input,
-    .form-group textarea {
-        padding: 12px;
-    }
-    
-    h1, .greeting, .intro {
-        font-size: 2.2rem;
-    }
-    
-    .profession {
-        font-size: 1.5rem;
-    }
-    
-    .hero-section {
-        padding: 70px 0;
-    }
-    
-    .section {
-        padding: 60px 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .profile-card {
-        padding: 30px 20px;
-    }
-    
-    .profile-image {
-        flex: 0 0 180px;
-    }
-    
-    h1, .greeting, .intro {
-        font-size: 2rem;
-    }
-    
-    h2 {
-        font-size: 1.5rem;
-    }
-    
-    .profession {
-        font-size: 1.3rem;
-    }
-    
-    p {
-        font-size: 1rem;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-    
-    .button {
-        width: 100%;
-        max-width: 200px;
-        text-align: center;
-    }
-    
-    .container {
-        width: 95%;
-        padding: 0 10px;
-    }
-    
-    .hero-section {
-        padding: 50px 0;
-    }
-    
-    .section {
-        padding: 40px 0;
-    }
-}
-
-@media (max-width: 360px) {
-    h1, .greeting, .intro {
-        font-size: 1.8rem;
-    }
-    
-    .profession {
-        font-size: 1.2rem;
-    }
-    
-    .nav-links {
-        width: 85%;
-    }
-}
+/* Remove all media queries since Bootstrap handles responsiveness */
+/* Bootstrap will handle responsive layout automatically */
